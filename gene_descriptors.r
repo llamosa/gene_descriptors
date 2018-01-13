@@ -1,5 +1,5 @@
 library(ontologyIndex)
-library(RJSONIO)
+library(jsonlite)
 library(ontologySimilarity)
 library(RCurl)
 
@@ -7,10 +7,8 @@ data(go)
 data(gene_GO_terms)
 data(GO_IC)
 
-#json_data <- RJSONIO::fromJSON(file=getURL('https://github.com/TBomberman/Optimizer/blob/master/L1000/landmark_genes.json'))
 gene_json_data <- jsonlite::fromJSON('data/landmark_genes.json')
 
-#gene_list = c("LRBA", "LYST", "NBEA", "NBEAL1", "NBEAL2", "NSMAF", "WDFY3", "WDFY4", "WDR81")
 gene_list <- gene_json_data["gene_symbol"][[1]]
 
 beach <- gene_GO_terms[gene_list]
