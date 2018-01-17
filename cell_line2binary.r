@@ -8,4 +8,4 @@ for (i in (1:length(cell_lines))){
 }
 rownames(binary_cell_lines) <- cell_lines
 #colnames(binary_cell_lines) <- go_terms_unique
-write.csv(binary_cell_lines,file="data/cell_line_fingerprint.csv", quote=FALSE)
+write.csv(binary_cell_lines,file="data/cell_lines_fingerprint.csv", quote=FALSE)
