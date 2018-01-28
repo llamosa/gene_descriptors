@@ -15,8 +15,10 @@ beach <- gene_GO_terms[gene_list]
 
 go_terms <- c()
 for (i in (1:length(gene_list) )){
-  print(c(i,gene_list[[i]],beach[[i]]))
-  go_terms <- c(go_terms,beach[[i]])
+  ic<-get_term_info_content(go,beach[[i]])[0:5]
+  go_selected <- beach[[i]][order(ic,decreasing = TRUE)]
+  #print(c(i,gene_list[[i]], go_selected))
+  go_terms <- c(go_terms, go_selected)
 }
 
 go_terms_unique <- sort(unique(go_terms))
