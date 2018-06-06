@@ -21,11 +21,9 @@ for (i in (1:length(gene_list) )){
   #print(c(i,gene_list[[i]], go_selected))
   go_terms <- c(go_terms, go_selected)
 }
-
+go_terms_unique <- sort(unique(go_terms))
 
 #Descriptors binary occurency vector
-
-go_terms_unique <- sort(unique(go_terms))
 
 gene_go_fingerprint <- matrix(0,length(gene_list),length(go_terms_unique))
 for (i in (1:length(go_terms_unique))){
