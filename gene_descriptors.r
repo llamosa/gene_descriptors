@@ -13,6 +13,7 @@ gene_list <- gene_json_data["gene_symbol"][[1]]
 
 beach <- gene_GO_terms[gene_list]
 
+#Go term selection top-5 based on information content (IC)
 go_terms <- c()
 for (i in (1:length(gene_list) )){
   ic<-get_term_info_content(go,beach[[i]])[0:5]
@@ -20,6 +21,9 @@ for (i in (1:length(gene_list) )){
   #print(c(i,gene_list[[i]], go_selected))
   go_terms <- c(go_terms, go_selected)
 }
+
+
+#Descriptors binary occurency vector
 
 go_terms_unique <- sort(unique(go_terms))
 
